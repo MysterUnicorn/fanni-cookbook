@@ -1,3 +1,6 @@
 [submodule "themes/ananke"]
 	path = themes/ananke
 	url = https://github.com/theNewDynamic/gohugo-theme-ananke.git
+[submodule "themes/hugo-tailwindcss-starter-theme"]
+	path = themes/hugo-tailwindcss-starter-theme
+	url = https://github.com/dirkolbrich/hugo-tailwindcss-starter-theme.git
