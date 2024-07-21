@@ -1,2 +1,7 @@
 # fanni-cookbook
-Fanni's cookbok!
+Fanni's cookbook!
+
+## Run locally
+```
+hugo
+```
