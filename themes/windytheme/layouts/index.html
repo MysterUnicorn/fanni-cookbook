@@ -1,3 +1,40 @@
 {{ define "main" }}
-  {{ .Content }}
+
+
+<h3 class="text-2xl font-bold mt-5">Latest</h3>
+
+{{/* Get those recipes that have image featured image and those posts that have summary */}}
+{{ $latest_recipes := where .Site.Pages ".Params.featured_image" "ne" nil }}
+{{ $latest_posts := where .Site.Pages ".Params.summary" "ne" nil }}
+{{ $latest_content := collections.Union $latest_recipes $latest_posts }}
+
+
+<div id="recipes" class="mt-8 grid lg:grid-cols-3 gap-5">
+  {{ range first 3  $latest_content.ByPublishDate.Reverse }}
+  <div class="cursor-pointer" onclick="location.href='{{ .RelPermalink }}';">
+    <div class="bg-yellow-200 rounded overflow-hidden shadow-md hover:shadow-lg">
+      {{ if and (eq .Section "recipes") }} {{/* Only display thumbnail if it has featured image. */}}
+      <img src={{.Params.featured_image}} alt={{.Title}} class="w-full h-32 sm:h-48 object-cover" />
+      {{ end }}
+      {{ if and (eq .Section "posts") }} {{/* Only display thumbnail if it has featured image. */}}
+      <div class="w-full h-32 sm:h-48 p-7 object-cover">
+        <span class="sm:text-2xl m:test-xl text-lg">{{.Params.summary}}</span>
+      </div>
+      {{ end }}
+      <div class="m-4 flex justify-center">
+        <div class="inline-block  transition ease-linear hover:scale-105 duration-100">
+          <span class="font-bold text-lg">{{.Title}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+{{ end }}
+
+</div>
+
+
+
+
 {{ end }}
