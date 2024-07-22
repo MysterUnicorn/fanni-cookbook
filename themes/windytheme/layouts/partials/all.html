@@ -1,0 +1,12 @@
+{{ $pages := .Pages }}
+
+{{ with $pages }}    
+    {{ .Content }}
+    <ul class="mx-5 list-disc">
+    {{ range .Pages }}
+    <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+    {{ end }}
+    </ul>
+
+    <!-- {{ .Summary }} -->
+{{ end }}
