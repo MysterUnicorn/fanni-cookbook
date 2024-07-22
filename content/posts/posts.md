@@ -7,3 +7,17 @@ summary = "This is the posts' summary. Summary is gonna look like this!"
 
 # Fanni's posts go here!
 This is a post about something 
+
+## Sub pargraph
+### Sub-sub paragraph
+Another paragraph goes here
+
+some list:
+- a thing
+- another thing
+
+ordered list:
+1. first
+2. second
+
+[hello](google.com)
